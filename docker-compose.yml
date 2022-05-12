@@ -16,3 +16,13 @@ services:
       - ./cinema_service/:/app/
     ports:
       - 8002:8000
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx-config.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - movie_service
+      - cinema_service

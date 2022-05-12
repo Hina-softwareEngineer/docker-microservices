@@ -3,10 +3,10 @@ from fastapi import FastAPI
 app = FastAPI()
 
 
-@app.get('/')
+@app.get('/cinema')
 async def index():
     return {"Type": "This is Cinema Service"}
 
-@app.get('/hello')
+@app.get('/cinema/hello')
 async def index():
     return {"Type": "This is Cinema Service Presenting Hello API"}
