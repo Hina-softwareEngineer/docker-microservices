@@ -1,0 +1,18 @@
+version: '3.9'
+
+services:
+  movie_service:
+    build: ./movie_service
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./movie_service/:/app/
+    ports:
+      - 8001:8000
+
+  cinema_service:
+    build: ./cinema_service
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 8000
+    volumes:
+      - ./cinema_service/:/app/
+    ports:
+      - 8002:8000
